@@ -84,7 +84,7 @@ public class Polinomio {
                 }
 
                 //Exponente
-                if (parts[1].matches("\\Ax^\\d+")) {
+                if (parts[1].matches("\\A[xX]^\\d+")) {
                     parts[1].replace("x^", "");
                     parts[1].replace("X^", "");
                 } else if (parts[1].contains("x")) {
