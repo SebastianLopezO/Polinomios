@@ -64,35 +64,38 @@ public class Polinomio {
     public int[] Disassemble(String Pol) {
         String[] monomios = Pol.split("(?=([+-]))");
         int[] vec = new int[monomios.length * 2];
-        int cont = 0;
+
         for (int i = 0; i < monomios.length; i++) {
             String[] parts = monomios[i].split("(?=([xX]\\^?))");
             if (parts.length == 1) {
                 //Coeficiente
                 if (parts[0].contains("x")) {
-                    vec[cont+i] = 1;
-                    vec[cont+i+1] = 1;
+                    vec[i * 2] = 1;
+                    vec[i * 2 + 1] = 1;
                 } else if (parts[0].matches("\\d+") || parts[0].matches("[+-]\\d+")) {
-                    vec[cont+i] = Integer.parseInt(parts[0]);
-                    vec[cont+i+1] = 0;
+                    vec[i * 2] = Integer.parseInt(parts[0]);
+                    vec[i * 2 + 1] = 0;
                 }
 
             } else if (parts.length == 2) {
                 //Coeficiente
                 if (parts[0].matches("\\d+") || parts[0].matches("[+-]\\d+")) {
-                    vec[cont+i] = Integer.parseInt(parts[0]);
+                    vec[i*2] = Integer.parseInt(parts[0]);
+                } else if (parts[0].matches("[+-]")) {
+                    if (parts[0].contains("+")) {
+                        vec[i * 2] = 1;
+                    } else {
+                        vec[i * 2] = -1;
+                    }
                 }
 
                 //Exponente
-                if (parts[1].matches("\\A[xX]^\\d+")) {
-                    parts[1].replace("x^", "");
-                    parts[1].replace("X^", "");
-                } else if (parts[1].contains("x")) {
-                    vec[cont+i+1] = 1;
+                if (parts[1].matches("^[xX]\\^\\d+$")) {
+                    vec[i * 2 + 1] = Integer.parseInt(parts[1].toLowerCase().replace("x^", ""));
+                } else if (parts[1].contains("x") || parts[1].contains("X")) {
+                    vec[i * 2 + 1] = 1;
                 }
             }
-            System.out.println(monomios[i]);
-            cont++;
         }
         return vec;
     }
@@ -100,12 +103,11 @@ public class Polinomio {
     public String Assemble(int[] Vec) {
         String polinomio = "";
         for (int i = 0; i < Vec.length; i += 2) {
-            System.out.println("["+Vec[i]+"]"+"["+Vec[i+1]+"]");
             //Coeficiente
             if (Vec[i] != 1 && Vec[i] != -1 && Vec[i] != 0) {
-                if(Vec[i]>0){
-                    polinomio+="+"+Vec[i];
-                }else{
+                if (Vec[i] > 0) {
+                    polinomio += "+" + Vec[i];
+                } else {
                     polinomio += Vec[i];
                 }
 
@@ -117,9 +119,9 @@ public class Polinomio {
 
             //Exponente
             if (Vec[i] != 0) {
-                if(Vec[i+1]==1){
+                if (Vec[i + 1] == 1) {
                     polinomio += "x";
-                } else if (Vec[i + 1] !=0) {
+                } else if (Vec[i + 1] != 0) {
                     polinomio += "x^" + Vec[i + 1];
                 }
             }
