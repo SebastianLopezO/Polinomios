@@ -65,6 +65,7 @@ public class Polinomio {
         String[] monomios = Pol.split("(?=([+-]))");
         int[] vec = new int[monomios.length * 2];
         String tx = "";
+        System.out.println("\t"+"Partes: ");
         for (int i = 0; i < monomios.length; i++) {
             String[] parts = monomios[i].replaceAll("\\s+", "").split("(?=([xX]\\^?))");
             if (parts.length == 1) {
@@ -100,43 +101,45 @@ public class Polinomio {
                 }
                 tx = parts[0] + "/" + parts[1];
             }
-            System.out.println(monomios[i] + ": " + tx);
+            System.out.println("\t• "+monomios[i] + ": " + tx);
         }
         return vec;
     }
 
     public String Assemble(int[] Vec) {
         String polinomio = "";
+        System.out.println("\t"+"Vector: ");
         for (int i = 0; i < Vec.length; i += 2) {
-            System.out.println(Vec[i] + "|" + Vec[i + 1]);
+            String parts="";
             //Coeficiente
             if (Vec[i] != 1 && Vec[i] != -1 && Vec[i] != 0) {
                 if (Vec[i] > 0 && i != 0) {
-                    polinomio += "+" + Vec[i];
+                    parts += "+" + Vec[i];
                 } else {
-                    polinomio += Vec[i];
+                    parts += Vec[i];
                 }
 
             } else if (Vec[i] == 1 && Vec[i + 1] == 0 && i!=0) {
-                polinomio += "+1";
+                parts += "+1";
             } else if (Vec[i] == 1 && i!=0) {
-                polinomio += "+";
+                parts += "+";
             } else if (Vec[i] == -1 && Vec[i + 1] == 0) {
-                polinomio += "-1";
+                parts += "-1";
             } else if (Vec[i] == -1) {
-                polinomio += "-";
+                parts += "-";
             }
 
 
             //Exponente
             if (Vec[i] != 0) {
                 if (Vec[i + 1] == 1) {
-                    polinomio += "x";
+                    parts += "x";
                 } else if (Vec[i + 1] != 0) {
-                    polinomio += "x^" + Vec[i + 1];
+                    parts += "x^" + Vec[i + 1];
                 }
             }
-            polinomio += " ";
+            polinomio += parts+" ";
+            System.out.println("\t• ["+Vec[i] + "|" + Vec[i + 1]+"] : "+parts);
         }
         return polinomio;
     }
