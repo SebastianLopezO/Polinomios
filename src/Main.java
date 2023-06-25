@@ -14,7 +14,8 @@ public class Main {
                 "x^2 - 4x + 7",
                 "4x^4 - 3x^2 + 2x - 1",
                 "-x^3 + 3x^2 - 2x + 1",
-                "6x^5 + 5x^4 - 4x^3 + 3x^2 - 2x + 1"
+                "6x^5 + 5x^4 - 4x^3 + 3x^2 - 2x + 1",
+                "1+10x^2+20x^3"
         };
         for (String polinomio : polinomios) {
             Polinomio POL1 = new Polinomio();
