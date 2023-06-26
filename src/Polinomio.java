@@ -15,10 +15,10 @@ public class Polinomio {
 
     public Polinomio(String Pol) {
         this.Pol = Pol;
-        //this.Vec = Disassemble(Pol);
-        /*this.F1 = new Forma1(this.Vec);
-        this.F2 = new Forma2(this.Vec);
-        this.F3 = new Forma3(this.Vec);*/
+        this.Vec = Disassemble(Pol);
+        this.F1 = new Forma1(this.Vec);
+        //this.F2 = new Forma2(this.Vec);
+        //this.F3 = new Forma3(this.Vec);
     }
 
     public String getPol() {

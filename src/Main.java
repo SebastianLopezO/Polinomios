@@ -18,9 +18,11 @@ public class Main {
                 "1+10x^2+20x^3"
         };
         for (String polinomio : polinomios) {
-            Polinomio POL1 = new Polinomio();
             System.out.println(polinomio);
-            System.out.println(POL1.Assemble(POL1.Disassemble(polinomio)));
+            Polinomio POL1 = new Polinomio(polinomio);
+            System.out.println("Forma 1: ");
+            POL1.getF1().Show();
+            System.out.println(POL1.Assemble(POL1.getF1().Assemble(POL1.getF1().Disassemble(POL1.getVec()))));
             System.out.println();
         }
 
