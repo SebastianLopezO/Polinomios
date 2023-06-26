@@ -31,16 +31,16 @@ public class Forma1 {
         int grade = vec[0];
         int[] data = new int[(grade + 1) * 2];
         for (int i = 1; i < vec.length; i++) {
-            data[i*2-1] = grade - i + 1;
-            data[i*2-2] = vec[i];
+            data[i * 2 - 1] = grade - i + 1;
+            data[i * 2 - 2] = vec[i];
         }
         return data;
     }
 
-    public int Grade(int[] vec) {
+    public int Grade(int[] data) {
         int max = 0;
-        for (int i = 1; i < vec.length; i += 2) {
-            max = Math.max(vec[i], max);
+        for (int i = 1; i < data.length; i += 2) {
+            max = Math.max(data[i], max);
         }
         return max;
     }
