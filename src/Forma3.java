@@ -1,8 +1,12 @@
 public class Forma3 {
     private Nodo Punta;
 
-    public Forma3(Nodo punta) {
-        Punta = punta;
+    public Forma3() {
+        Punta = null;
+    }
+
+    public Forma3(int[] vec) {
+        Disassemble(vec);
     }
 
     public Nodo getPunta() {
@@ -20,12 +24,12 @@ public class Forma3 {
     }
 
     public int[] Assemble() {
-        int[] data=new int[Len()*2];
-        int pos=0;
+        int[] data = new int[Len() * 2];
+        int pos = 0;
         Nodo aux = Punta;
-        while (aux!= null) {
-            data[pos*2]=aux.getCoe();
-            data[pos*2+1]=aux.getExp();
+        while (aux != null) {
+            data[pos * 2] = aux.getCoe();
+            data[pos * 2 + 1] = aux.getExp();
             aux = aux.getLiga();
         }
         return data;
@@ -47,10 +51,19 @@ public class Forma3 {
     public int Len() {
         int count = 0;
         Nodo aux = Punta;
-        while (aux!= null) {
+        while (aux != null) {
             count++;
             aux = aux.getLiga();
         }
         return count;
+    }
+
+    public void Show() {
+        Nodo aux = Punta;
+        while (aux != null) {
+            System.out.print("[" + aux.getCoe() + "|" + aux.getExp() + "|" + aux.getLiga() + "] -> ");
+            aux = aux.getLiga();
+        }
+        System.out.println();
     }
 }

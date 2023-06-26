@@ -17,8 +17,8 @@ public class Polinomio {
         this.Pol = Pol;
         this.Vec = Disassemble(Pol);
         this.F1 = new Forma1(this.Vec);
-        //this.F2 = new Forma2(this.Vec);
-        //this.F3 = new Forma3(this.Vec);
+        this.F2 = new Forma2(this.Vec);
+        this.F3 = new Forma3(this.Vec);
     }
 
     public String getPol() {
@@ -131,9 +131,9 @@ public class Polinomio {
                 parts += "+ ";
             } else if (Vec[i] == -1 && Vec[i + 1] == 0) {
                 parts += "- 1";
-            } else if (Vec[i] == -1 && i!=0) {
+            } else if (Vec[i] == -1 && i != 0) {
                 parts += "- ";
-            }else if (Vec[i] == -1) {
+            } else if (Vec[i] == -1) {
                 parts += "-";
             }
 

@@ -22,7 +22,10 @@ public class Main {
             Polinomio POL1 = new Polinomio(polinomio);
             System.out.println("Forma 1: ");
             POL1.getF1().Show();
-            System.out.println(POL1.Assemble(POL1.getF1().Assemble(POL1.getF1().Disassemble(POL1.getVec()))));
+            System.out.println("Forma 2: ");
+            POL1.getF2().Show();
+            System.out.println("Forma 3: ");
+            POL1.getF3().Show();
             System.out.println();
         }
 

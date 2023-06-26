@@ -13,20 +13,20 @@ public class Forma2 {
         Vec = vec;
     }
 
-    public int[] Disassemble(int[] data){
-        int cont = getVec().length;
-        int[] Vec = new int[cont+1];
-        Vec[0] = cont;
+    public int[] Disassemble(int[] data) {
+        int cont = data.length;
+        int[] Vec = new int[cont + 1];
+        Vec[0] = cont/2;
         for (int i = 1; i < Vec.length; i++) {
-            Vec[i]=data[i-1];
+            Vec[i] = data[i - 1];
         }
         return Vec;
     }
 
-    public int[] Assemble(int[] vec){
-        int[] data = new int[vec.length-1];
+    public int[] Assemble(int[] vec) {
+        int[] data = new int[vec.length - 1];
         for (int i = 0; i < vec.length; i++) {
-            data[i]=vec[i+1];
+            data[i] = vec[i + 1];
         }
         return vec;
     }

@@ -32,11 +32,13 @@ public class Nodo {
         this.Exp = exp;
         this.Liga = null;
     }
+
     public Nodo(int coe, int exp, Nodo liga) {
         this.Coe = coe;
         this.Exp = exp;
         this.Liga = liga;
     }
+
     public Nodo() {
         this.Coe = 0;
         this.Exp = 0;
