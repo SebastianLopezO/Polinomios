@@ -25,7 +25,7 @@ public class Forma2 {
 
     public int[] Assemble(int[] vec) {
         int[] data = new int[vec.length - 1];
-        for (int i = 0; i < vec.length; i++) {
+        for (int i = 0; i < vec.length-1; i++) {
             data[i] = vec[i + 1];
         }
         return vec;

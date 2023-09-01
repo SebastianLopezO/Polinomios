@@ -31,6 +31,7 @@ public class Forma3 {
             data[pos * 2] = aux.getCoe();
             data[pos * 2 + 1] = aux.getExp();
             aux = aux.getLiga();
+            pos +=1;
         }
         return data;
     }

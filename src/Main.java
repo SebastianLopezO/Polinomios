@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -22,10 +23,13 @@ public class Main {
             Polinomio POL1 = new Polinomio(polinomio);
             System.out.println("Forma 1: ");
             POL1.getF1().Show();
+            System.out.println("Forma 1 a Polinomio: "+POL1.Assemble( POL1.getF1().Assemble(POL1.getF1().getVec()))+"\n");
             System.out.println("Forma 2: ");
             POL1.getF2().Show();
+            System.out.println("Forma 2 a Polinomio: "+POL1.Assemble( POL1.getF2().Assemble(POL1.getF2().getVec()))+"\n");
             System.out.println("Forma 3: ");
             POL1.getF3().Show();
+            System.out.println("Forma 3 a Polinomio: "+POL1.Assemble(POL1.getF3().Assemble())+"\n");
             System.out.println();
         }
 
