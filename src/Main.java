@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -19,18 +18,19 @@ public class Main {
                 "1+10x^2+20x^3"
         };
         for (String polinomio : polinomios) {
-            System.out.println(polinomio);
+            System.out.println("Polinomio: "+polinomio);
             Polinomio POL1 = new Polinomio(polinomio);
-            System.out.println("Forma 1: ");
-            POL1.getF1().Show();
-            System.out.println("Forma 1 a Polinomio: "+POL1.Assemble( POL1.getF1().Assemble(POL1.getF1().getVec()))+"\n");
-            System.out.println("Forma 2: ");
-            POL1.getF2().Show();
-            System.out.println("Forma 2 a Polinomio: "+POL1.Assemble( POL1.getF2().Assemble(POL1.getF2().getVec()))+"\n");
-            System.out.println("Forma 3: ");
-            POL1.getF3().Show();
-            System.out.println("Forma 3 a Polinomio: "+POL1.Assemble(POL1.getF3().Assemble())+"\n");
             System.out.println();
+            System.out.println(Clr.G+"Forma 1: ");
+            POL1.getF1().Show();
+            System.out.println("Forma 1 a Polinomio: "+POL1.Assemble( POL1.getF1().Assemble(POL1.getF1().getVec()))+"\n"+Clr.RT);
+            System.out.println(Clr.B+"Forma 2: ");
+            POL1.getF2().Show();
+            System.out.println("Forma 2 a Polinomio: "+POL1.Assemble( POL1.getF2().Assemble(POL1.getF2().getVec()))+"\n"+Clr.RT);
+            System.out.println(Clr.R+"Forma 3: ");
+            POL1.getF3().Show();
+            System.out.println("Forma 3 a Polinomio: "+POL1.Assemble(POL1.getF3().Assemble())+"\n"+Clr.RT);
+            System.out.println("----------------------------------------------");
         }
 
     }
