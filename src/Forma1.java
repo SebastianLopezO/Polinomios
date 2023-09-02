@@ -27,12 +27,12 @@ public class Forma1 {
         return Vec;
     }
 
-    public int[] Assemble(int[] vec) {
-        int grade = vec[0];
+    public int[] Assemble() {
+        int grade = Vec[0];
         int[] data = new int[(grade + 1) * 2];
-        for (int i = 1; i < vec.length; i++) {
+        for (int i = 1; i < Vec.length; i++) {
             data[i * 2 - 1] = grade - i + 1;
-            data[i * 2 - 2] = vec[i];
+            data[i * 2 - 2] = Vec[i];
         }
         return data;
     }

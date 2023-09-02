@@ -23,11 +23,11 @@ public class Forma2 {
         return Vec;
     }
 
-    public int[] Assemble(int[] vec) {
-        int monomios = vec[0];
+    public int[] Assemble() {
+        int monomios = Vec[0];
         int[] data = new int[monomios*2];
-        for (int i = 1; i < vec.length; i++) {
-            data[i-1] = vec[i];
+        for (int i = 1; i < Vec.length; i++) {
+            data[i-1] = Vec[i];
         }
         return data;
     }

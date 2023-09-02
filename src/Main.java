@@ -19,17 +19,17 @@ public class Main {
         };
         for (String polinomio : polinomios) {
             System.out.println("Polinomio: "+polinomio);
-            Polinomio POL1 = new Polinomio(polinomio);
+            Polinomio POL = new Polinomio(polinomio);
             System.out.println();
             System.out.println(Clr.G+"Forma 1: ");
-            POL1.getF1().Show();
-            System.out.println("Forma 1 a Polinomio: "+POL1.Assemble( POL1.getF1().Assemble(POL1.getF1().getVec()))+"\n"+Clr.RT);
+            POL.getF1().Show();
+            System.out.println("Forma 1 a Polinomio: "+POL.Assemble(POL.getF1().Assemble())+"\n"+Clr.RT);
             System.out.println(Clr.B+"Forma 2: ");
-            POL1.getF2().Show();
-            System.out.println("Forma 2 a Polinomio: "+POL1.Assemble( POL1.getF2().Assemble(POL1.getF2().getVec()))+"\n"+Clr.RT);
+            POL.getF2().Show();
+            System.out.println("Forma 2 a Polinomio: "+POL.Assemble(POL.getF2().Assemble())+"\n"+Clr.RT);
             System.out.println(Clr.R+"Forma 3: ");
-            POL1.getF3().Show();
-            System.out.println("Forma 3 a Polinomio: "+POL1.Assemble(POL1.getF3().Assemble())+"\n"+Clr.RT);
+            POL.getF3().Show();
+            System.out.println("Forma 3 a Polinomio: "+POL.Assemble(POL.getF3().Assemble())+"\n"+Clr.RT);
             System.out.println("----------------------------------------------");
         }
 
