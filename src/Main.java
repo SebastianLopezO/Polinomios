@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -10,6 +12,14 @@ public class Main {
         Polinomio PolC = new Polinomio();
         Polinomio PolD = new Polinomio();
         Polinomio PolAns = new Polinomio();
+
+        //Mapa de Variables
+        Map<String, Polinomio> Variables = new HashMap<>();
+        Variables.put("PolA", PolA);
+        Variables.put("PolB", PolB);
+        Variables.put("PolC", PolC);
+        Variables.put("PolD", PolD);
+        Variables.put("PolAns", PolAns);
 
         while(app){
             option = Menu();
@@ -25,11 +35,11 @@ public class Main {
                     break;
                 case "PolAns":
                     break;
-                case "Operaciones":
+                case "Operations":
                     break;
-                case "Resetear":
+                case "Reset":
                     break;
-                case "Salir":
+                case "Exit":
                     app = false;
                     break;
             }
@@ -37,6 +47,16 @@ public class Main {
     }
 
     public static String Menu(){
-        String[] options = {""};
+        String[] options = {"PolA",
+                            "PolB",
+                            "PolC",
+                            "PolD",
+                            "PolAns",
+                            "Operations",
+                            "Reset",
+                            "Exit"
+        };
+
+        return option;
     }
 }
