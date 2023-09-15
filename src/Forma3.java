@@ -17,6 +17,10 @@ public class Forma3 {
         Punta = punta;
     }
 
+    public void Define(int[] vec){
+        Disassemble(vec);
+    }
+
     public void Disassemble(int[] data) {
         for (int i = 0; i < data.length; i += 2) {
             InsertOrder(data[i], data[i + 1]);

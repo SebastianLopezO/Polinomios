@@ -4,6 +4,9 @@ public class Forma2 {
     public Forma2(int[] vec) {
         this.Vec = Disassemble(vec);
     }
+    public Forma2() {
+        this.Vec = null;
+    }
 
     public int[] getVec() {
         return Vec;
@@ -11,6 +14,10 @@ public class Forma2 {
 
     public void setVec(int[] vec) {
         Vec = vec;
+    }
+
+    public void Define(int[] vec){
+        this.Vec = Disassemble(vec);
     }
 
     public int[] Disassemble(int[] data) {

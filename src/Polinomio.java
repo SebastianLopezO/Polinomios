@@ -4,21 +4,26 @@ public class Polinomio {
     private Forma1 F1;
     private Forma2 F2;
     private Forma3 F3;
+    private String Name,Method; //Atributos Extra para Impresion
 
-    public Polinomio() {
+    public Polinomio(String Name) {
         this.Pol = "";
         this.Vec = null;
-        this.F1 = null;
-        this.F2 = null;
-        this.F3 = null;
+        this.F1 = new Forma1();
+        this.F2 = new Forma2();
+        this.F3 = new Forma3();
+        this.Name = Name;
+        this.Method = "empty";
     }
 
-    public Polinomio(String Pol) {
+    public Polinomio(String Pol, String Name) {
         this.Pol = Pol;
         this.Vec = Disassemble(Pol);
         this.F1 = new Forma1(this.Vec);
         this.F2 = new Forma2(this.Vec);
         this.F3 = new Forma3(this.Vec);
+        this.Name = Name;
+        this.Method = "empty";
     }
 
     public String getPol() {
@@ -26,7 +31,7 @@ public class Polinomio {
     }
 
     public void setPol(String pol) {
-        Pol = pol;
+        this.Pol = pol;
     }
 
     public Forma1 getF1() {
@@ -59,6 +64,29 @@ public class Polinomio {
 
     public void setVec(int[] vec) {
         Vec = vec;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public String getMethod() {
+        return Method;
+    }
+
+    public void setMethod(String method) {
+        Method = method;
+    }
+
+    public void Define(String pol){
+        this.Vec = Disassemble(pol);
+        this.F1.Define(this.Vec);
+        this.F2.Define(this.Vec);
+        this.F3.Define(this.Vec);
     }
 
     public int[] Disassemble(String Pol) {
@@ -150,5 +178,14 @@ public class Polinomio {
             System.out.println("\t• [" + Vec[i] + "|" + Vec[i + 1] + "] : " + parts);
         }
         return polinomio;
+    }
+
+    public void Show(){
+        System.out.println("Forma 1:");
+        System.out.println(Assemble(this.F1.Assemble()));
+        System.out.println("Forma 2:");
+        System.out.println(Assemble(this.F2.Assemble()));
+        System.out.println("Forma 3:");
+        System.out.println(Assemble(this.F3.Assemble()));
     }
 }
